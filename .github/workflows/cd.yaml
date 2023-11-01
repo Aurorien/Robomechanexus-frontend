@@ -12,4 +12,4 @@ jobs:
 
       - name: Deploy
         run: |
-          curl "https://robomechanexus-frontend-test.onrender.com/"
+          curl "https://api.render.com/deploy/srv-cl17900p2gis73d8v5b0?key=4B7pkSCJ98A"
