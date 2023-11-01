@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://robomechanexus-backend-test.onrender.com/")
+      .get("https://robomechanexus-backend-test.onrender.com/api")
       .then((response) => {
         setData(response.data);
         setLoading(false);
