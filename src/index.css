@@ -16,7 +16,7 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -50,6 +50,18 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.chip-of-the-day {
+  background-color: #030303;
+  display: flex;
+  justify-content: center;
+  p {
+    background-color: rgb(128, 255, 212, 0.8);
+    border-radius: 100%;
+    color: #000000;
+    width: 100%;
+  }
 }
 
 img {

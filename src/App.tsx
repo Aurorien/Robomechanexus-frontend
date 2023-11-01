@@ -3,9 +3,13 @@ import "./App.css";
 import axios from "axios";
 import robot from "./assets/RobotAtMechanexus.png";
 
+interface ApiResponse {
+  chip: string;
+}
+
 function App() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState<string | undefined>("empty");
+  const [count, setCount] = useState<number>(0);
+  const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -14,12 +18,13 @@ function App() {
       .then((response) => {
         setData(response.data);
         setLoading(false);
+        console.log("data", data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, [setData]);
+  }, [data, setData]);
 
   return (
     <>
@@ -30,14 +35,16 @@ function App() {
         </button>
       </div>
       <p>Robot mechatronics workshop</p>
-      <div>
+      <div className="chip-of-the-day">
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div>
-            <h1>API Response</h1>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </div>
+          data && (
+            <div>
+              <h2>Chip of the day:</h2>
+              <p>{data.chip}</p>
+            </div>
+          )
         )}
       </div>
       <img src={robot} alt="Robot" />
