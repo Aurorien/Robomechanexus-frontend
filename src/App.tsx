@@ -12,6 +12,7 @@ function App() {
           count is {count}
         </button>
       </div>
+      <p>Robot mechatronics workshop</p>
     </>
   );
 }
